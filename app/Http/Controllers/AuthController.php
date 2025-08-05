@@ -34,8 +34,6 @@ class AuthController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
-=======
     public function showRegistrationForm()
     {
         return view('register');
@@ -64,7 +62,6 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Registration successful! Please login.');
     }
 
->>>>>>> 3a61353 (membuat kode logic registrasi)
     public function logout(Request $request)
     {
         Auth::logout();
