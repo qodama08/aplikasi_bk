@@ -35,6 +35,17 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}">
 
         <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
+
+
+        <style>
+            .navbar {
+                transition: background .2s ease-in-out;
+            }
+
+            .navbar.default {
+                transition: background .2s ease-in-out;
+            }
+        </style>
     </head>
 
     <body class="landing-page">
@@ -748,11 +759,11 @@
                     document.querySelector(".navbar").classList.remove("top-nav-collapse");
                 }
 
-                if (cOst > 500) {
-                    document.querySelector(".pc-landing-custmizer").classList.add("active");
-                } else {
-                    document.querySelector(".pc-landing-custmizer").classList.remove("active");
-                }
+                // if (cOst > 500) {
+                //     document.querySelector(".pc-landing-custmizer").classList.add("active");
+                // } else {
+                //     document.querySelector(".pc-landing-custmizer").classList.remove("active");
+                // }
                 ost = cOst;
             });
             // End [ Menu hide/show on scroll ]
