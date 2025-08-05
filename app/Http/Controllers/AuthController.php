@@ -34,6 +34,37 @@ class AuthController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
+=======
+    public function showRegistrationForm()
+    {
+        return view('register');
+    }
+
+    public function register(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        // Create the user
+        $user = \App\Models\User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // Set session with the registered email
+        session(['registered_email' => $request->email]);
+
+        // Redirect to the login page with a success message
+        return redirect()->route('login')->with('success', 'Registration successful! Please login.');
+    }
+
+>>>>>>> 3a61353 (membuat kode logic registrasi)
     public function logout(Request $request)
     {
         Auth::logout();

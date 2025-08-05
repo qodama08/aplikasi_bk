@@ -52,7 +52,7 @@
         <nav class="pc-sidebar">
             <div class="navbar-wrapper">
                 <div class="m-header">
-                    <a href="../dashboard/index.html" class="b-brand text-primary">
+                    <a href="/" class="b-brand text-primary">
                         <!-- ========   Change your logo from here   ============ -->
                         <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo">
                     </a>
@@ -299,7 +299,7 @@
                                 href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside"
                                 aria-expanded="false">
                                 <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
-                                <span>Stebin Ben</span>
+                                <span>{{ auth()->user()->name }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                                 <div class="dropdown-header">
@@ -309,8 +309,8 @@
                                                 class="user-avtar wid-35">
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1">Stebin Ben</h6>
-                                            <span>UI/UX Designer</span>
+                                            <h6 class="mb-1">{{ auth()->user()->name }}</h6>
+                                            <span>-</span>
                                         </div>
                                         <a href="#!" class="pc-head-link bg-transparent"><i
                                                 class="ti ti-power text-danger"></i></a>
@@ -356,6 +356,8 @@
                                                 <span>Logout</span>
                                             </button>
                                         </form>
+
+
                                     </div>
                                     <div class="tab-pane fade" id="drp-tab-2" role="tabpanel"
                                         aria-labelledby="drp-t2" tabindex="0">

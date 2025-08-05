@@ -81,33 +81,46 @@
                     </div>
                 </div>
             </nav>
-            <!-- [ Nav ] start -->
-            <img src="../assets/images/landing/bg-mockup-theme-1.png" alt="img"
-                class="img-fluid img-home-mokeup img-landing" data-img="../assets/images/landing/bg-mockup-theme-"
-                data-img-type=".png">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md-6 col-xl-4">
-                        <h1 class="mt-sm-3 text-white mb-4 f-w-600 wow fadeInUp" data-wow-delay="0.2s">Carefully Crafted
-                            for your
-                            <span class="text-primary">Caring React</span> Project
-                        </h1>
-                        <h5 class="mb-4 text-white opacity-75 wow fadeInUp" data-wow-delay="0.4s"> Mantis React is a
-                            blazing-fast
-                            dashboard template built using the MUI React library.</h5>
-                        <div class="my-5 wow fadeInUp" data-wow-delay="0.6s">
-                            <a href="../elements/bc_alert.html" class="btn btn-outline-primary me-2"
-                                target="_blank">Explore Components</a>
-                            <a href="../dashboard/index.html" class="btn btn-primary d-inline-flex align-items-center"
-                                target="_blank"> <i class="ti ti-eye me-1"></i> Live Preview</a>
+
+            <div class="row pt-5">
+                <div class="col-lg-6">
+                    <img src="../assets/images/landing/bg-mockup-theme-1.png" alt="img"
+                        class="img-fluid img-home-mokeup img-landing"
+                        data-img="../assets/images/landing/bg-mockup-theme-" data-img-type=".png">
+                </div>
+                <div class="col-lg-6">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-12">
+                                <h1 class="mt-sm-3 text-white mb-4 f-w-600 wow fadeInUp" data-wow-delay="0.2s">Carefully
+                                    Crafted
+                                    for your
+                                    <span class="text-primary">Caring React</span> Project
+                                </h1>
+                                <h5 class="mb-4 text-white opacity-75 wow fadeInUp" data-wow-delay="0.4s"> Mantis React
+                                    is a
+                                    blazing-fast
+                                    dashboard template built using the MUI React library.</h5>
+                                <div class="my-5 wow fadeInUp" data-wow-delay="0.6s">
+                                    <a href="../elements/bc_alert.html" class="btn btn-outline-primary me-2"
+                                        target="_blank">Explore Components</a>
+                                    <a href="../dashboard/index.html"
+                                        class="btn btn-primary d-inline-flex align-items-center" target="_blank"> <i
+                                            class="ti ti-eye me-1"></i> Live Preview</a>
+                                </div>
+                                <img src="../assets/images/landing/img-headertech.svg" alt="img"
+                                    class="img-fluid wow fadeInUp" data-wow-delay="0.8s">
+                            </div>
+                            <div class="col-lg-7">
+                            </div>
                         </div>
-                        <img src="../assets/images/landing/img-headertech.svg" alt="img"
-                            class="img-fluid wow fadeInUp" data-wow-delay="0.8s">
-                    </div>
-                    <div class="col-lg-7">
                     </div>
                 </div>
+
             </div>
+
+
+
         </header>
         <!-- [ Header ] End -->
         <!-- [ Why Mantis ] start -->

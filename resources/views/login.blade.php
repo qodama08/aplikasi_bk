@@ -21,6 +21,7 @@
                     </div>
 
                 @endif
+<<<<<<< HEAD
                 <div class="form-group mb-3">
                     <label class="form-label">Email Address</label>
                     <input type="email" class="form-control" name="email" placeholder="Email Address">
@@ -28,6 +29,27 @@
                 <div class="form-group mb-3">
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
+=======
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <div class="form-group mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email Address"
+                        value="{{ session('registered_email') }}" autocomplete="off">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label">Password</label>
+
+                    @if (session('registered_email'))
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password"
+                            autofocus>
+                    @else
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    @endif
+>>>>>>> 3a61353 (membuat kode logic registrasi)
                 </div>
                 <div class="d-flex mt-1 justify-content-between">
                     <div class="form-check">
