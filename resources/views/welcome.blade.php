@@ -74,20 +74,21 @@
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item pe-1">
-                                <a class="nav-link" href="../dashboard/index.html">Dashboard</a>
+                                <a class="nav-link active" href="/">Home</a>
                             </li>
                             <li class="nav-item pe-1">
-                                <a class="nav-link" href="../elements/bc_alert.html">Components</a>
+                                <a class="nav-link" href="/dashboard">Dashboard</a>
                             </li>
-                            <li class="nav-item pe-1">
-                                <a class="nav-link me-2" href="https://codedthemes.gitbook.io/mantis-bootstrap/"
-                                    target="_blank">Documentation</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-primary" target="_blank"
-                                    href="https://codedthemes.com/item/mantis-bootstrap-admin-dashboard/">Purchase
-                                    Now</a>
-                            </li>
+
+                            @if (auth()->check())
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" href="/myprofile">{{ auth()->user()->name }}</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" href="/login">Login</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

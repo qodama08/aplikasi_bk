@@ -25,5 +25,10 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
     Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/myprofile', function () {
+        return view('myprofile');
+    });
 });
