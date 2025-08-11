@@ -25,7 +25,9 @@ class AuthController extends Controller
 
         // Attempt to log the user in
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('dashboard');
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
         }
 
         // If authentication fails, redirect back with an error
@@ -46,13 +48,15 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
         ]);
 
         // Create the user
-        $user = \App\Models\User::create([
+        \App\Models\User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'role' => $request->role ?? 'user',
         ]);
 
         // Set session with the registered email

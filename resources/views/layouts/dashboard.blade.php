@@ -16,9 +16,6 @@
 
         <!-- [Favicon] icon -->
 
-
-
-
         <link rel="icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/x-icon">
         <!-- [Google Font] Family -->
         <link rel="stylesheet"
@@ -51,125 +48,29 @@
         <!-- [ Sidebar Menu ] start -->
         <nav class="pc-sidebar">
             <div class="navbar-wrapper">
-                <div class="m-header">
-                    <a href="/" class="b-brand text-primary">
+                <div class="m-header justify-content-center">
+                    <a href="/" class="b-brand text-dark text-capitalize fw-bold">
                         <!-- ========   Change your logo from here   ============ -->
-                        <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo">
+                        <span class="fs-4">{{ auth()->user()->role }} Dashboard</span>
                     </a>
                 </div>
                 <div class="navbar-content">
                     <ul class="pc-navbar">
-                        <li class="pc-item active">
-                            <a href="../dashboard/index.html" class="pc-link">
+                        <li class="pc-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                            <a href="/dashboard" class="pc-link">
                                 <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
                                 <span class="pc-mtext">Dashboard</span>
                             </a>
                         </li>
+                        @if (auth()->user()->role === 'admin')
+                            @include('admin.sidebar')
+                        @else
+                            @include('user.sidebar')
+                        @endif
 
-                        <li class="pc-item pc-caption">
-                            <label>UI Components</label>
-                            <i class="ti ti-dashboard"></i>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../elements/bc_typography.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-typography"></i></span>
-                                <span class="pc-mtext">Typography</span>
-                            </a>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../elements/bc_color.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-color-swatch"></i></span>
-                                <span class="pc-mtext">Color</span>
-                            </a>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../elements/icon-tabler.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-plant-2"></i></span>
-                                <span class="pc-mtext">Icons</span>
-                            </a>
-                        </li>
 
-                        <li class="pc-item pc-caption">
-                            <label>Pages</label>
-                            <i class="ti ti-news"></i>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../pages/login.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-lock"></i></span>
-                                <span class="pc-mtext">Login</span>
-                            </a>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../pages/register.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-user-plus"></i></span>
-                                <span class="pc-mtext">Register</span>
-                            </a>
-                        </li>
 
-                        <li class="pc-item pc-caption">
-                            <label>Other</label>
-                            <i class="ti ti-brand-chrome"></i>
-                        </li>
-                        <li class="pc-item pc-hasmenu">
-                            <a href="#!" class="pc-link"><span class="pc-micon"><i
-                                        class="ti ti-menu"></i></span><span class="pc-mtext">Menu
-                                    levels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                            <ul class="pc-submenu">
-                                <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-                                <li class="pc-item pc-hasmenu">
-                                    <a href="#!" class="pc-link">Level 2.2<span class="pc-arrow"><i
-                                                data-feather="chevron-right"></i></span></a>
-                                    <ul class="pc-submenu">
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                        <li class="pc-item pc-hasmenu">
-                                            <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
-                                                        data-feather="chevron-right"></i></span></a>
-                                            <ul class="pc-submenu">
-                                                <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a>
-                                                </li>
-                                                <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="pc-item pc-hasmenu">
-                                    <a href="#!" class="pc-link">Level 2.3<span class="pc-arrow"><i
-                                                data-feather="chevron-right"></i></span></a>
-                                    <ul class="pc-submenu">
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                        <li class="pc-item pc-hasmenu">
-                                            <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"><i
-                                                        data-feather="chevron-right"></i></span></a>
-                                            <ul class="pc-submenu">
-                                                <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a>
-                                                </li>
-                                                <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="pc-item">
-                            <a href="../other/sample-page.html" class="pc-link">
-                                <span class="pc-micon"><i class="ti ti-brand-chrome"></i></span>
-                                <span class="pc-mtext">Sample page</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <img src="../assets/images/img-navbar-card.png" alt="images" class="img-fluid mb-2">
-                            <h5>Upgrade To Pro</h5>
-                            <p>To get more features and components</p>
-                            <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/" target="_blank"
-                                class="btn btn-success">Buy Now</a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </nav>
@@ -303,17 +204,16 @@
                             </a>
                             <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                                 <div class="dropdown-header">
-                                    <div class="d-flex mb-1">
+                                    <div class="d-flex mb-1 align-items-center">
                                         <div class="flex-shrink-0">
                                             <img src="../assets/images/user/avatar-2.jpg" alt="user-image"
                                                 class="user-avtar wid-35">
                                         </div>
                                         <div class="flex-grow-1 ms-3">
                                             <h6 class="mb-1">{{ auth()->user()->name }}</h6>
-                                            <span>-</span>
+                                            <span>{{ auth()->user()->role }}</span>
                                         </div>
-                                        <a href="#!" class="pc-head-link bg-transparent"><i
-                                                class="ti ti-power text-danger"></i></a>
+
                                     </div>
                                 </div>
                                 <ul class="nav drp-tabs nav-fill nav-tabs" id="mydrpTab" role="tablist">
@@ -333,22 +233,12 @@
                                 <div class="tab-content" id="mysrpTabContent">
                                     <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel"
                                         aria-labelledby="drp-t1" tabindex="0">
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-edit-circle"></i>
-                                            <span>Edit Profile</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
+
+                                        <a href="/myprofile" class="dropdown-item">
                                             <i class="ti ti-user"></i>
-                                            <span>View Profile</span>
+                                            <span>My Profile</span>
                                         </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-clipboard-list"></i>
-                                            <span>Social Profile</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-wallet"></i>
-                                            <span>Billing</span>
-                                        </a>
+
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <button type="submit" class="dropdown-item">
@@ -361,7 +251,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="drp-tab-2" role="tabpanel"
                                         aria-labelledby="drp-t2" tabindex="0">
-                                        <a href="#!" class="dropdown-item">
+                                        <a href="/contact-us" class="dropdown-item">
                                             <i class="ti ti-help"></i>
                                             <span>Support</span>
                                         </a>
@@ -369,18 +259,7 @@
                                             <i class="ti ti-user"></i>
                                             <span>Account Settings</span>
                                         </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-lock"></i>
-                                            <span>Privacy Center</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-messages"></i>
-                                            <span>Feedback</span>
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            <i class="ti ti-list"></i>
-                                            <span>History</span>
-                                        </a>
+
                                     </div>
                                 </div>
                             </div>
