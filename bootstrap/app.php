@@ -12,7 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+<<<<<<< HEAD
         $middleware->alias(['cekRole' => CheckRole::class,]);
+=======
+        $middleware->alias([
+            'cekRole' => CheckRole::class,
+        ]);
+>>>>>>> 828c9f8 (update layout)
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

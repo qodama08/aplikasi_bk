@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
+=======
+        // User::factory(10)->create();
+>>>>>>> 828c9f8 (update layout)
         $this->call([
             UserSeeder::class,
         ]);

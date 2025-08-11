@@ -10,8 +10,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="javascript: void(0)">Users</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page">User Profile</li>
                         </ul>
                     </div>
@@ -28,468 +28,760 @@
         <div class="row">
             <!-- [ sample-page ] start -->
             <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body position-relative">
-                                <div class="text-center">
-                                    <div class="chat-avtar d-inline-flex mx-auto">
-                                        <img class="rounded-circle img-fluid wid-120"
-                                            src="../assets/images/user/avatar-5.jpg" alt="User image">
-                                    </div>
-                                    <h5 class="mt-3">{{ auth()->user()->name }}</h5>
-                                    <p class="text-muted">Full Stack Developer</p>
-                                    <ul class="list-inline ms-auto mb-0">
-                                        <li class="list-inline-item">
-                                            <a href="#" class="avtar avtar-xs btn-light-facebook">
-                                                <i class="ti ti-brand-facebook f-18"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="avtar avtar-xs btn-light-twitter">
-                                                <i class="ti ti-brand-twitter f-18"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" class="avtar avtar-xs btn-light-linkedin">
-                                                <i class="ti ti-brand-linkedin f-18"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="row g-3 my-4">
-                                        <div class="col-4">
-                                            <h5 class="mb-0">86</h5>
-                                            <small class="text-muted">Post</small>
-                                        </div>
-                                        <div class="col-4 border border-top-0 border-bottom-0">
-                                            <h5 class="mb-0">40</h5>
-                                            <small class="text-muted">Project</small>
-                                        </div>
-                                        <div class="col-4">
-                                            <h5 class="mb-0">4.5K</h5>
-                                            <small class="text-muted">Members</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nav flex-column nav-pills list-group list-group-flush user-sett-tabs"
-                                    id="user-set-tab" role="tablist" aria-orientation="vertical">
-                                    <a class="nav-link list-group-item list-group-item-action active" id="user-tab-1"
-                                        data-bs-toggle="pill" href="#user-cont-1" role="tab" aria-selected="true">
-                                        <span class="f-w-500"><i class="ti ti-user m-r-10"></i>Personal Information</span>
-                                    </a>
-                                    <a class="nav-link list-group-item list-group-item-action" id="user-tab-2"
-                                        data-bs-toggle="pill" href="#user-cont-2" role="tab" aria-selected="false"
-                                        tabindex="-1">
-                                        <span class="f-w-500"><i class="ti ti-credit-card m-r-10"></i>Payment</span>
-                                    </a>
-                                    <a class="nav-link list-group-item list-group-item-action" id="user-tab-3"
-                                        data-bs-toggle="pill" href="#user-cont-3" role="tab" aria-selected="false"
-                                        tabindex="-1">
-                                        <span class="f-w-500"><i class="ti ti-lock m-r-10"></i>Change Password</span>
-                                    </a>
-                                    <a class="nav-link list-group-item list-group-item-action" id="user-tab-4"
-                                        data-bs-toggle="pill" href="#user-cont-4" role="tab" aria-selected="false"
-                                        tabindex="-1">
-                                        <span class="f-w-500"><i class="ti ti-settings m-r-10"></i>settings</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <ul class="nav nav-tabs profile-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="profile-tab-1" data-bs-toggle="tab" href="#profile-1"
+                                    role="tab" aria-selected="true">
+                                    <i class="ti ti-user me-2"></i>Profile
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab-2" data-bs-toggle="tab" href="#profile-2" role="tab"
+                                    aria-selected="false" tabindex="-1">
+                                    <i class="ti ti-file-text me-2"></i>Personal
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab-3" data-bs-toggle="tab" href="#profile-3" role="tab"
+                                    aria-selected="false" tabindex="-1">
+                                    <i class="ti ti-id me-2"></i>My Account
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab-4" data-bs-toggle="tab" href="#profile-4" role="tab"
+                                    aria-selected="false" tabindex="-1">
+                                    <i class="ti ti-lock me-2"></i>Change Password
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab-5" data-bs-toggle="tab" href="#profile-5" role="tab"
+                                    aria-selected="false" tabindex="-1">
+                                    <i class="ti ti-users me-2"></i>Role
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="profile-tab-6" data-bs-toggle="tab" href="#profile-6" role="tab"
+                                    aria-selected="false" tabindex="-1">
+                                    <i class="ti ti-settings me-2"></i>Settings
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-md-8">
-                        <div class="tab-content" id="user-set-tabContent">
-                            <div class="tab-pane fade show active" id="user-cont-1" role="tabpanel"
-                                aria-labelledby="user-tab-1">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="profile-1" role="tabpanel"
+                                aria-labelledby="profile-tab-1">
+                                <div class="row">
+                                    <div class="col-lg-4 col-xxl-3">
+                                        <div class="card">
+                                            <div class="card-body position-relative">
+                                                <div class="position-absolute end-0 top-0 p-3">
+                                                    <span class="badge bg-primary">Pro</span>
+                                                </div>
+                                                <div class="text-center mt-3">
+                                                    <div class="chat-avtar d-inline-flex mx-auto">
+                                                        <img class="rounded-circle img-fluid wid-70"
+                                                            src="../assets/images/user/avatar-5.jpg" alt="User image">
+                                                    </div>
+                                                    <h5 class="mb-0">Anshan H.</h5>
+                                                    <p class="text-muted text-sm">Project Manager</p>
+                                                    <hr class="my-3">
+                                                    <div class="row g-3">
+                                                        <div class="col-4">
+                                                            <h5 class="mb-0">86</h5>
+                                                            <small class="text-muted">Post</small>
+                                                        </div>
+                                                        <div class="col-4 border border-top-0 border-bottom-0">
+                                                            <h5 class="mb-0">40</h5>
+                                                            <small class="text-muted">Project</small>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <h5 class="mb-0">4.5K</h5>
+                                                            <small class="text-muted">Members</small>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="my-3">
+                                                    <div
+                                                        class="d-inline-flex align-items-center justify-content-between w-100 mb-3">
+                                                        <i class="ti ti-mail"></i>
+                                                        <p class="mb-0">anshan@gmail.com</p>
+                                                    </div>
+                                                    <div
+                                                        class="d-inline-flex align-items-center justify-content-between w-100 mb-3">
+                                                        <i class="ti ti-phone"></i>
+                                                        <p class="mb-0">(+1-876) 8654 239 581</p>
+                                                    </div>
+                                                    <div
+                                                        class="d-inline-flex align-items-center justify-content-between w-100 mb-3">
+                                                        <i class="ti ti-map-pin"></i>
+                                                        <p class="mb-0">New York</p>
+                                                    </div>
+                                                    <div
+                                                        class="d-inline-flex align-items-center justify-content-between w-100">
+                                                        <i class="ti ti-link"></i>
+                                                        <a href="#" class="link-primary">
+                                                            <p class="mb-0">https://anshan.dh.url</p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Skills</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">Junior</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 30%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">30%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">UX Researcher</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 80%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">80%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">Wordpress</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 90%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">90%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">HTML</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 30%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">30%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center mb-3">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">Graphic Design</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 95%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">95%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center">
+                                                    <div class="col-sm-6 mb-2 mb-sm-0">
+                                                        <p class="mb-0">Code Style</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1 me-3">
+                                                                <div class="progress progress-primary"
+                                                                    style="height: 6px;">
+                                                                    <div class="progress-bar" style="width: 75%;"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <p class="mb-0 text-muted">75%</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-xxl-9">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>About me</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="mb-0">Hello, I’m Anshan Handgun Creative Graphic Designer &amp;
+                                                    User Experience Designer
+                                                    based in Website, I create digital Products a more Beautiful and usable
+                                                    place. Morbid
+                                                    accusant ipsum. Nam nec tellus at.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Personal Details</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Full Name</p>
+                                                                <p class="mb-0">Anshan Handgun</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Father Name</p>
+                                                                <p class="mb-0">Mr. Deepen Handgun</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Phone</p>
+                                                                <p class="mb-0">(+1-876) 8654 239 581</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Country</p>
+                                                                <p class="mb-0">New York</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Email</p>
+                                                                <p class="mb-0">anshan.dh81@gmail.com</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Zip Code</p>
+                                                                <p class="mb-0">956 754</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <p class="mb-1 text-muted">Address</p>
+                                                        <p class="mb-0">Street 110-B Kalians Bag, Dewan, M.P. New York
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Education</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Master Degree (Year)</p>
+                                                                <p class="mb-0">2014-2017</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Institute</p>
+                                                                <p class="mb-0">-</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Bachelor (Year)</p>
+                                                                <p class="mb-0">2011-2013</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Institute</p>
+                                                                <p class="mb-0">Imperial College London</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">School (Year)</p>
+                                                                <p class="mb-0">2009-2011</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Institute</p>
+                                                                <p class="mb-0">School of London, England</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Employment</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Senior</p>
+                                                                <p class="mb-0">Senior UI/UX designer (Year)</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Job Responsibility</p>
+                                                                <p class="mb-0">Perform task related to project manager
+                                                                    with the 100+ team under my
+                                                                    observation. Team management is key role in this
+                                                                    company.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Trainee cum Project Manager
+                                                                    (Year)</p>
+                                                                <p class="mb-0">2017-2019</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Job Responsibility</p>
+                                                                <p class="mb-0">Team management is key role in this
+                                                                    company.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">School (Year)</p>
+                                                                <p class="mb-0">2009-2011</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p class="mb-1 text-muted">Institute</p>
+                                                                <p class="mb-0">School of London, England</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="profile-2" role="tabpanel" aria-labelledby="profile-tab-2">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
                                                 <h5>Personal Information</h5>
-                                                <hr class="mb-4">
                                             </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">First Name</label>
-                                                    <input type="text" class="form-control" value="Stebin">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Last Name</label>
-                                                    <input type="text" class="form-control" value="Ben">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Email Address</label>
-                                                    <input type="email" class="form-control"
-                                                        value="stebin.ben@gmail.com">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Date of Birth (+18)</label>
-                                                    <input type="date" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Phone Number</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Phone Number">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Designation</label>
-                                                    <input type="text" class="form-control" placeholder="Designation">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h5 class="mt-4">Address</h5>
-                                                <hr class="mb-4">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Address 01</label>
-                                                    <textarea class="form-control">3801 Chalk Butte Rd, Cut Bank, MT 59427, United States</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Address 02</label>
-                                                    <textarea class="form-control">301 Chalk Butte Rd, Cut Bank, NY 96572, New York</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Country</label>
-                                                    <select class="form-select">
-                                                        <option>United States</option>
-                                                        <option>United States 1</option>
-                                                        <option>United States 2</option>
-                                                        <option>United States 3</option>
-                                                        <option>United States 4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">State</label>
-                                                    <input type="text" class="form-control" value="California">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h5 class="mt-4">Skills</h5>
-                                                <hr class="mb-4">
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="choices" data-type="select-multiple" role="combobox"
-                                                        aria-autocomplete="list" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <div class="choices__inner"><select
-                                                                class="form-control choices__input" name="pc_product_tag3"
-                                                                id="pc_product_tag3" multiple="" hidden=""
-                                                                tabindex="-1" data-choice="active">
-                                                                <option value="Choice 1"
-                                                                    data-custom-properties="[object Object]">Adobe XD
-                                                                </option>
-                                                                <option value="Choice 2"
-                                                                    data-custom-properties="[object Object]">Angular
-                                                                </option>
-                                                                <option value="Choice 3"
-                                                                    data-custom-properties="[object Object]">Corel Draw
-                                                                </option>
-                                                                <option value="Choice 4"
-                                                                    data-custom-properties="[object Object]">Figma</option>
-                                                                <option value="Choice 5"
-                                                                    data-custom-properties="[object Object]">HTML</option>
-                                                                <option value="Choice 6"
-                                                                    data-custom-properties="[object Object]">Illustrator
-                                                                </option>
-                                                                <option value="Choice 7"
-                                                                    data-custom-properties="[object Object]">Javascript
-                                                                </option>
-                                                                <option value="Choice 8"
-                                                                    data-custom-properties="[object Object]">Logo Design
-                                                                </option>
-                                                                <option value="Choice 9"
-                                                                    data-custom-properties="[object Object]">Material UI
-                                                                </option>
-                                                                <option value="Choice 10"
-                                                                    data-custom-properties="[object Object]">NodeJS
-                                                                </option>
-                                                                <option value="Choice 11"
-                                                                    data-custom-properties="[object Object]">npm</option>
-                                                                <option value="Choice 12"
-                                                                    data-custom-properties="[object Object]">Photoshop
-                                                                </option>
-                                                                <option value="Choice 13"
-                                                                    data-custom-properties="[object Object]">React</option>
-                                                                <option value="Choice 14"
-                                                                    data-custom-properties="[object Object]">Reduxjs -
-                                                                    tooltit</option>
-                                                                <option value="Choice 15"
-                                                                    data-custom-properties="[object Object]">SASS</option>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-center mb-3">
+                                                        <div class="user-upload wid-75">
+                                                            <img src="../assets/images/user/avatar-4.jpg" alt="img"
+                                                                class="img-fluid">
+                                                            <label for="uplfile" class="img-avtar-upload">
+                                                                <i class="ti ti-camera f-24 mb-1"></i>
+                                                                <span>Upload</span>
+                                                            </label>
+                                                            <input type="file" id="uplfile" class="d-none">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">First Name</label>
+                                                            <input type="text" class="form-control" value="Anshan">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Last Name</label>
+                                                            <input type="text" class="form-control" value="Handgun">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Country</label>
+                                                            <input type="text" class="form-control" value="New York">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Zip code</label>
+                                                            <input type="text" class="form-control" value="956754">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Bio</label>
+                                                            <textarea class="form-control">Hello, I’m Anshan Handgun Creative Graphic Designer &amp; User Experience Designer based in Website, I create digital Products a more Beautiful and usable place. Morbid accusant ipsum. Nam nec tellus at.</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Experience</label>
+                                                            <select class="form-control">
+                                                                <option>Startup</option>
+                                                                <option>2 year</option>
+                                                                <option>3 year</option>
+                                                                <option selected="">4 year</option>
+                                                                <option>5 year</option>
                                                             </select>
-                                                            <div class="choices__list choices__list--multiple">
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="1" data-value="Choice 1"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Adobe XD<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 1'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="2" data-value="Choice 2"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Angular<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 2'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="3" data-value="Choice 3"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Corel
-                                                                    Draw<button type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 3'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="4" data-value="Choice 4"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Figma<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 4'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="5" data-value="Choice 5"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">HTML<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 5'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="6" data-value="Choice 6"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">
-                                                                    Illustrator<button type="button"
-                                                                        class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 6'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="7" data-value="Choice 7"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">
-                                                                    Javascript<button type="button"
-                                                                        class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 7'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="8" data-value="Choice 8"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Logo
-                                                                    Design<button type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 8'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="9" data-value="Choice 9"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Material
-                                                                    UI<button type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 9'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="10" data-value="Choice 10"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">NodeJS<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 10'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="11" data-value="Choice 11"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">npm<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 11'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="12" data-value="Choice 12"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">
-                                                                    Photoshop<button type="button"
-                                                                        class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 12'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="13" data-value="Choice 13"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">React<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 13'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="14" data-value="Choice 14"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">Reduxjs -
-                                                                    tooltit<button type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 14'"
-                                                                        data-button="">Remove item</button></div>
-                                                                <div class="choices__item choices__item--selectable"
-                                                                    data-item="" data-id="15" data-value="Choice 15"
-                                                                    data-custom-properties="[object Object]"
-                                                                    aria-selected="true" data-deletable="">SASS<button
-                                                                        type="button" class="choices__button"
-                                                                        aria-label="Remove item: 'Choice 15'"
-                                                                        data-button="">Remove item</button></div>
-                                                            </div><input type="search" name="search_terms"
-                                                                class="choices__input choices__input--cloned"
-                                                                autocomplete="off" autocapitalize="off"
-                                                                spellcheck="false" role="textbox"
-                                                                aria-autocomplete="list" aria-label="null">
-                                                        </div>
-                                                        <div class="choices__list choices__list--dropdown"
-                                                            aria-expanded="false">
-                                                            <div class="choices__list" aria-multiselectable="true"
-                                                                role="listbox">
-                                                                <div
-                                                                    class="choices__item choices__item--choice has-no-choices">
-                                                                    No choices to choose from</div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h5 class="mt-4">Note</h5>
-                                                <hr class="mb-4">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Social Network</h5>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <textarea class="form-control">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</textarea>
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <div class="flex-grow-1 me-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <div class="avtar avtar-xs btn-light-twitter">
+                                                                    <i class="fab fa-twitter f-16"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-grow-1 ms-3">
+                                                                <h6 class="mb-0">Twitter</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-shrink-0">
+                                                        <button class="btn btn-link-danger">Connect</button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <div class="flex-grow-1 me-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <div class="avtar avtar-xs btn-light-facebook">
+                                                                    <i class="fab fa-facebook-f f-16"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-grow-1 ms-3">
+                                                                <h6 class="mb-0">Facebook</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-shrink-0">
+                                                        <div class="text-facebook">Anshan Handgun</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 me-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-shrink-0">
+                                                                <div class="avtar avtar-xs btn-light-linkedin">
+                                                                    <i class="fab fa-linkedin-in f-16"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex-grow-1 ms-3">
+                                                                <h6 class="mb-0">Linkedin</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-shrink-0">
+                                                        <button class="btn btn-link-danger">Connect</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Contact Information</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Contact Phone</label>
+                                                            <input type="text" class="form-control"
+                                                                value="(+99) 9999 999 999">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Email <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control"
+                                                                value="demo@sample.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Portfolio Url</label>
+                                                            <input type="text" class="form-control"
+                                                                value="https://demo.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Address</label>
+                                                            <textarea class="form-control">3379  Monroe Avenue, Fort Myers, Florida(33912)</textarea>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer text-end btn-page">
+                                    <div class="col-12 text-end btn-page">
                                         <div class="btn btn-outline-secondary">Cancel</div>
-                                        <div class="btn btn-primary">Save</div>
+                                        <div class="btn btn-primary">Update Profile</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="user-cont-2" role="tabpanel" aria-labelledby="user-tab-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5>Payment</h5>
-                                        <hr class="mb-4">
-                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                                    href="#pills-home" role="tab" aria-controls="pills-home"
-                                                    aria-selected="true">Card</a>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                                                    href="#pills-profile" role="tab" aria-controls="pills-profile"
-                                                    aria-selected="false" tabindex="-1">Paypal</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                                                aria-labelledby="pills-home-tab">
-                                                <div class="row mb-2">
-                                                    <div class="col-lg-6">
-                                                        <div class="border card p-3">
-                                                            <div class="form-check">
-                                                                <input type="radio" name="radio1"
-                                                                    class="form-check-input input-primary"
-                                                                    id="customCheckdef1">
-                                                                <label class="form-check-label d-block"
-                                                                    for="customCheckdef1">
-                                                                    <span
-                                                                        class="d-flex align-items-center justify-content-between">
-                                                                        <span>
-                                                                            <span class=" mb-2 text-muted d-block">Selena
-                                                                                Litten</span>
-                                                                            <span class="h5 mb-0">**** **** ****
-                                                                                3456</span>
-                                                                        </span>
-                                                                        <span class="d-inline-flex align-items-center">
-                                                                            <span class="mx-3"
-                                                                                style="background: url('../assets/images/application/card.png'); width: 33px; height: 20px;"></span>
-                                                                            <a href="#"
-                                                                                class="avtar avtar-xs btn-link-danger">
-                                                                                <i class="ti ti-trash f-18"></i>
-                                                                            </a>
-                                                                        </span>
-                                                                    </span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="border card p-3">
-                                                            <div class="form-check">
-                                                                <input type="radio" name="radio1"
-                                                                    class="form-check-input input-primary"
-                                                                    id="customCheckdef2">
-                                                                <label class="form-check-label d-block"
-                                                                    for="customCheckdef2">
-                                                                    <span
-                                                                        class="d-flex align-items-center justify-content-between">
-                                                                        <span>
-                                                                            <span class=" mb-2 text-muted d-block">Stebin
-                                                                                Ben</span>
-                                                                            <span class="h5 mb-0">**** **** ****
-                                                                                7654</span>
-                                                                        </span>
-                                                                        <span class="d-inline-flex align-items-center">
-                                                                            <span class="mx-3"
-                                                                                style="background: url('../assets/images/application/card.png'); width: 33px; height: 20px; background-position: right;"></span>
-                                                                            <a href="#"
-                                                                                class="avtar avtar-xs btn-link-danger">
-                                                                                <i class="ti ti-trash f-18"></i>
-                                                                            </a>
-                                                                        </span>
-                                                                    </span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="tab-pane" id="profile-3" role="tabpanel" aria-labelledby="profile-tab-3">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>General Settings</h5>
                                             </div>
-                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                                aria-labelledby="pills-profile-tab">
-                                                <div class="form-group">
-                                                    <label class="form-label">Email Address</label>
-                                                    <input type="email" class="form-control"
-                                                        value="stebin.ben@gmail.com">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Username <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control"
+                                                                value="Ashoka_Tano_16">
+                                                            <small class="form-text text-muted">Your Profile URL:
+                                                                https://pc.com/Ashoka_Tano_16</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Account Email <span
+                                                                    class="text-danger">*</span></label>
+                                                            <input type="text" class="form-control"
+                                                                value="demo@sample.com">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Language</label>
+                                                            <select class="form-control">
+                                                                <option>Washington</option>
+                                                                <option>India</option>
+                                                                <option>Africa</option>
+                                                                <option>New York</option>
+                                                                <option>Malaysia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Sign in Using</label>
+                                                            <select class="form-control">
+                                                                <option>Password</option>
+                                                                <option>Face Recognition</option>
+                                                                <option>Thumb Impression</option>
+                                                                <option>Key</option>
+                                                                <option>Pin</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer text-end btn-page">
-                                        <div class="btn btn-outline-secondary">Cancel</div>
-                                        <div class="btn btn-primary">Save</div>
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Advance Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div>
+                                                                <p class="mb-1">Secure Browsing</p>
+                                                                <p class="text-muted text-sm mb-0">Browsing Securely (
+                                                                    https ) when it's necessary</p>
+                                                            </div>
+                                                            <div class="form-check form-switch p-0">
+                                                                <input class="form-check-input h4 position-relative m-0"
+                                                                    type="checkbox" role="switch" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div>
+                                                                <p class="mb-1">Login Notifications</p>
+                                                                <p class="text-muted text-sm mb-0">Notify when login
+                                                                    attempted from other place</p>
+                                                            </div>
+                                                            <div class="form-check form-switch p-0">
+                                                                <input class="form-check-input h4 position-relative m-0"
+                                                                    type="checkbox" role="switch" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div>
+                                                                <p class="mb-1">Login Approvals</p>
+                                                                <p class="text-muted text-sm mb-0">Approvals is not
+                                                                    required when login from
+                                                                    unrecognized devices.</p>
+                                                            </div>
+                                                            <div class="form-check form-switch p-0">
+                                                                <input class="form-check-input h4 position-relative m-0"
+                                                                    type="checkbox" role="switch" checked="">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Recognized Devices</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="me-2">
+                                                                <p class="mb-2">Celt Desktop</p>
+                                                                <p class="mb-0 text-muted">4351 Deans Lane</p>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="text-success d-inline-block me-2">
+                                                                    <i class="fas fa-circle f-8 me-2"></i>
+                                                                    Current Active
+                                                                </div>
+                                                                <a href="#!" class="text-danger"><i
+                                                                        class="feather icon-x-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="me-2">
+                                                                <p class="mb-2">Imco Tablet</p>
+                                                                <p class="mb-0 text-muted">4185 Michigan Avenue</p>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="text-muted d-inline-block me-2">
+                                                                    <i class="fas fa-circle f-8 me-2"></i>
+                                                                    Active 5 days ago
+                                                                </div>
+                                                                <a href="#!" class="text-danger"><i
+                                                                        class="feather icon-x-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="me-2">
+                                                                <p class="mb-2">Albs Mobile</p>
+                                                                <p class="mb-0 text-muted">3462 Fairfax Drive</p>
+                                                            </div>
+                                                            <div class="">
+                                                                <div class="text-muted d-inline-block me-2">
+                                                                    <i class="fas fa-circle f-8 me-2"></i>
+                                                                    Active 1 month ago
+                                                                </div>
+                                                                <a href="#!" class="text-danger"><i
+                                                                        class="feather icon-x-circle"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Active Sessions</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item px-0 pt-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="me-2">
+                                                                <p class="mb-2">Celt Desktop</p>
+                                                                <p class="mb-0 text-muted">4351 Deans Lane</p>
+                                                            </div>
+                                                            <button class="btn btn-link-danger">Logout</button>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-0 pb-0">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <div class="me-2">
+                                                                <p class="mb-2">Moon Tablet</p>
+                                                                <p class="mb-0 text-muted">4185 Michigan Avenue</p>
+                                                            </div>
+                                                            <button class="btn btn-link-danger">Logout</button>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-end">
+                                        <button class="btn btn-outline-dark ms-2">Clear</button>
+                                        <button class="btn btn-primary">Update Profile</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="user-cont-3" role="tabpanel" aria-labelledby="user-tab-3">
+                            <div class="tab-pane" id="profile-4" role="tabpanel" aria-labelledby="profile-tab-4">
                                 <div class="card">
+                                    <div class="card-header">
+                                        <h5>Change Password</h5>
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <h5>Change Password</h5>
-                                                <hr class="mb-4">
-                                            </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Old Password</label>
                                                     <input type="password" class="form-control">
@@ -503,110 +795,417 @@
                                                     <input type="password" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-sm-6">
                                                 <h5>New password must contain:</h5>
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item"><i class="ti ti-minus me-2"></i> At least
                                                         8 characters</li>
                                                     <li class="list-group-item"><i class="ti ti-minus me-2"></i> At least
-                                                        1 lower letter (a-z)</li>
+                                                        1 lower letter (a-z)
+                                                    </li>
                                                     <li class="list-group-item"><i class="ti ti-minus me-2"></i> At least
-                                                        1 uppercase letter (A-Z)</li>
+                                                        1 uppercase letter
+                                                        (A-Z)</li>
                                                     <li class="list-group-item"><i class="ti ti-minus me-2"></i> At least
                                                         1 number (0-9)</li>
                                                     <li class="list-group-item"><i class="ti ti-minus me-2"></i> At least
-                                                        1 special characters</li>
+                                                        1 special characters
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-end btn-page">
                                         <div class="btn btn-outline-secondary">Cancel</div>
-                                        <div class="btn btn-primary">Save</div>
+                                        <div class="btn btn-primary">Update Profile</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="user-cont-4" role="tabpanel" aria-labelledby="user-tab-4">
+                            <div class="tab-pane" id="profile-5" role="tabpanel" aria-labelledby="profile-tab-5">
                                 <div class="card">
+                                    <div class="card-header">
+                                        <h5>Invite Team Members</h5>
+                                    </div>
                                     <div class="card-body">
+                                        <h4>5/10 <small>members available in your plan.</small></h4>
+                                        <hr class="my-3">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <h5>Settings</h5>
-                                                <hr class="mb-4">
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item px-0">
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ti ti-file-invoice me-3 f-36 text-primary"></i>
-                                                                <div>
-                                                                    <h5 class="mb-1">Order Confirmation</h5>
-                                                                    <p class="text-muted text-sm mb-0">You will be notified
-                                                                        when customer order any product</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-check form-switch p-0">
-                                                                <input class="form-check-input h4 position-relative m-0"
-                                                                    type="checkbox" role="switch" checked="">
-                                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label class="form-label">Email Address</label>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <input type="email" class="form-control">
                                                         </div>
-                                                    </li>
-                                                    <li class="list-group-item px-0">
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ti ti-mail me-3 f-36 text-primary"></i>
-                                                                <div>
-                                                                    <h5 class="mb-1">Setup Email Notification</h5>
-                                                                    <p class="text-muted text-sm mb-0">Turn on email
-                                                                        notification to get updates through email</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-check form-switch p-0">
-                                                                <input class="form-check-input h4 position-relative m-0"
-                                                                    type="checkbox" role="switch">
-                                                            </div>
+                                                        <div class="col-auto">
+                                                            <button class="btn btn-primary">Send</button>
                                                         </div>
-                                                    </li>
-                                                    <li class="list-group-item px-0">
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ti ti-notification me-3 f-36 text-primary"></i>
-                                                                <div>
-                                                                    <h5 class="mb-1">Update System Notification</h5>
-                                                                    <p class="text-muted text-sm mb-0">You will be notified
-                                                                        when customer order any product</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-check form-switch p-0">
-                                                                <input class="form-check-input h4 position-relative m-0"
-                                                                    type="checkbox" role="switch" checked="">
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item px-0">
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ti ti-writing-sign me-3 f-36 text-primary"></i>
-                                                                <div>
-                                                                    <h5 class="mb-1">Language Change</h5>
-                                                                    <p class="text-muted text-sm mb-0">You will be notified
-                                                                        when customer order any product</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-check form-switch p-0">
-                                                                <input class="form-check-input h4 position-relative m-0"
-                                                                    type="checkbox" role="switch" checked="">
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="card-body table-card">
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>MEMBER</th>
+                                                        <th>ROLE</th>
+                                                        <th class="text-end">STATUS</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-1.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Addie Bass</h5>
+                                                                    <p class="text-muted f-12 mb-0">mareva@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-primary">Owner</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-4.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-info">Manager</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="btn btn-link-danger">Resend</a> <span
+                                                                class="badge bg-light-success">Invited</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-5.jpg"
+                                                                        alt="user-image" class="wid-40 rounded  -circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-warning">Staff</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-1.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Addie Bass</h5>
+                                                                    <p class="text-muted f-12 mb-0">mareva@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-primary">Owner</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-4.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-info">Manager</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="btn btn-link-danger">Resend</a> <span
+                                                                class="badge bg-light-success">Invited</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-5.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-warning">Staff</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-1.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Addie Bass</h5>
+                                                                    <p class="text-muted f-12 mb-0">mareva@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-primary">Owner</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-4.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-info">Manager</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="btn btn-link-danger">Resend</a> <span
+                                                                class="badge bg-light-success">Invited</span></td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-auto pe-0">
+                                                                    <img src="../assets/images/user/avatar-5.jpg"
+                                                                        alt="user-image" class="wid-40 rounded-circle">
+                                                                </div>
+                                                                <div class="col">
+                                                                    <h5 class="mb-0">Agnes McGee</h5>
+                                                                    <p class="text-muted f-12 mb-0">heba@gmail.com</p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-light-warning">Staff</span></td>
+                                                        <td class="text-end"><span class="badge bg-success">Joined</span>
+                                                        </td>
+                                                        <td class="text-end"><a href="#"
+                                                                class="avtar avtar-s btn-link-secondary"><i
+                                                                    class="ti ti-dots f-18"></i></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                     <div class="card-footer text-end btn-page">
+                                        <div class="btn btn-link-danger">Cancel</div>
+                                        <div class="btn btn-primary">Update Profile</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="profile-6" role="tabpanel" aria-labelledby="profile-tab-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Email Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="mb-4">Setup Email Notification</h6>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Email Notification</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Send Copy To Personal Email</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Updates from System Notification</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="mb-4">Email you with?</h6>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">News about PCT-themes products and
+                                                            feature updates</p>
+                                                    </div>
+                                                    <div class="form-check p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Tips on getting more out of PCT-themes
+                                                        </p>
+                                                    </div>
+                                                    <div class="form-check p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Things you missed since you last logged
+                                                            into PCT-themes</p>
+                                                    </div>
+                                                    <div class="form-check  p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">News about products and other services
+                                                        </p>
+                                                    </div>
+                                                    <div class="form-check p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Tips and Document business products</p>
+                                                    </div>
+                                                    <div class="form-check p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Activity Related Emails</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h6 class="mb-4">When to email?</h6>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Have new notifications</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">You're sent a direct message</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Someone adds you as a connection</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <hr class="my-4">
+                                                <h6 class="mb-4">When to escalate emails?</h6>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Upon new order</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">New membership approval</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                                    <div>
+                                                        <p class="text-muted mb-0">Member registration</p>
+                                                    </div>
+                                                    <div class="form-check form-switch p-0">
+                                                        <input class="m-0 form-check-input h5 position-relative"
+                                                            type="checkbox" role="switch" checked="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-end btn-page">
                                         <div class="btn btn-outline-secondary">Cancel</div>
-                                        <div class="btn btn-primary">Save</div>
+                                        <div class="btn btn-primary">Update Profile</div>
                                     </div>
                                 </div>
                             </div>
