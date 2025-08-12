@@ -20,6 +20,13 @@ Route::middleware(['guest'])->group(
 
         Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
         Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+
+        Route::get('/verify-email', [AuthController::class, 'showVerifyForm'])->name('verify.form');
+
+        Route::post('/send-otp', [AuthController::class, 'sendOtp'])->name('send.otp');
+
+        Route::post('/verify-email', [AuthController::class, 'verify'])->name('verify.otp');
     }
 );
 

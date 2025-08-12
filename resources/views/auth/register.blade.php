@@ -24,21 +24,22 @@
                 @endif
                 <div class="form-group mb-3">
                     <label class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" autocomplete="off">
+                    <input type="text" class="form-control" required name="name" placeholder="Nama Lengkap"
+                        autocomplete="off">
                 </div>
 
                 <div class="form-group mb-3">
                     <label class="form-label">Email Address*</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email Address"
+                    <input type="email" class="form-control" required name="email" placeholder="Email Address"
                         autocomplete="off">
                 </div>
                 <div class="form-group mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" required name="password" placeholder="Password">
                 </div>
                 <div class="form-group mb-3">
                     <label class="form-label">Password Confirmation</label>
-                    <input type="password" class="form-control" name="password_confirmation"
+                    <input type="password" class="form-control" required name="password_confirmation"
                         placeholder="Password Confirmation">
                 </div>
                 <p class="mt-4 text-sm text-muted">By Signing up, you agree to our <a href="#" class="text-primary">

@@ -51,7 +51,9 @@
             <div class="auth-wrapper v3">
                 <div class="auth-form">
                     <div class="auth-header">
-                        <a href="/"><img src="../assets/images/logo-dark.svg" alt="img"></a>
+                        <a class="navbar-brand" href="/">
+                            <span class="logo-text fw-bold fs-4">Aplikasi PPDB SMK</span>
+                        </a>
                     </div>
 
                     @yield('content')
@@ -108,6 +110,22 @@
         </script>
 
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+                const forms = document.querySelectorAll('form[method="post"]');
+
+                forms.forEach(form => {
+                    form.addEventListener("submit", function() {
+                        const submitButton = form.querySelector('button[type="submit"]');
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = "Processing...";
+                    });
+                });
+            });
+        </script>
+
+        @yield('scripts_content')
 
     </body>
     <!-- [Body] end -->
