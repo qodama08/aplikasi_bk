@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        View::composer('*', function ($view) {
+            if (Auth::check()) {
+                $user = Auth::user();
+                $name = $user->name;
+                $role = $user->role;
+                $avatar = $user->provider == null
+                    ? url('assets/images/user/' . $user->avatar)
+                    : $user->avatar;
+
+                $view->with(compact('name', 'role', 'avatar'));
+            }
+        });
     }
 
     /**

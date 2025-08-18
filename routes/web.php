@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,6 +28,9 @@ Route::middleware(['guest'])->group(
         Route::post('/send-otp', [AuthController::class, 'sendOtp'])->name('send.otp');
 
         Route::post('/verify-email', [AuthController::class, 'verify'])->name('verify.otp');
+
+        Route::get('/auth/{provider}', [AuthController::class, 'redirect'])->name('sso.redirect');
+        Route::get('/auth/{provider}/callback', [AuthController::class, 'callback'])->name('sso.callback');
     }
 );
 

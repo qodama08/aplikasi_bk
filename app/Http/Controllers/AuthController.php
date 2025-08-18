@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Str;
+
+
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
+
+
     public function showLoginForm()
     {
         return view('auth.login');
@@ -197,6 +203,30 @@ class AuthController extends Controller
             'cooldown' => $cooldown,
             'timeResendOtp' => $setResendOtp
         ]);
+    }
+
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+    public function callback($provider)
+    {
+        $socialUser = Socialite::driver($provider)->user();
+
+        $user = User::updateOrCreate([
+            'email' => $socialUser->email,
+        ], [
+            'name' => $socialUser->name,
+            'provider' => $provider,
+            'provider_id' => $socialUser->getId(),
+            'password' => bcrypt(Str::random(16)),
+            'avatar' => $socialUser->getAvatar(),
+            'is_verified' => true
+        ]);
+
+        Auth::login($user);
+
+        return redirect('/dashboard');
     }
 
     public function logout(Request $request)
