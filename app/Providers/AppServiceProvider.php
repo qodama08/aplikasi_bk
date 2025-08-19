@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
                     ? url('assets/images/user/' . $user->avatar)
                     : $user->avatar;
 
-                $view->with(compact('name', 'role', 'avatar'));
+                $view->with(compact('user', 'name', 'role', 'avatar'));
             }
         });
     }

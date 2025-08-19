@@ -5,12 +5,30 @@
                 <h2 class="mb-3 text-primary">
                     Selamat Datang, <span class="fw-bold">{{ Auth::user()->name }}</span>!
                 </h2>
+
+                @if (!$user->is_verified)
+                    <div class="alert alert-warning d-flex align-items-center justify-content-between shadow-sm"
+                        role="alert">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
+                            <div>
+                                <strong>Email Anda belum terverifikasi.</strong> Silakan verifikasi terlebih dahulu
+                                untuk
+                                mengakses semua fitur.
+                            </div>
+                        </div>
+
+                        <a href="{{ route('verify.form') }}" class="btn btn-warning btn-sm fw-bold">Verifikasi
+                            Sekarang</a>
+                    </div>
+                @endif
                 <p class="lead mb-4">
                     Ini adalah <span class="fw-bold text-success">Dashboard</span> kamu untuk memantau progress dan
                     status terkait <span class="text-info">PPDB</span>.
                     Silakan gunakan menu di samping untuk mengakses fitur-fitur seperti pendaftaran, pengumuman, dan
                     lainnya.
                 </p>
+
                 <div class="row mt-4">
                     <div class="col-md-4 mb-3">
                         <div class="card border-info h-100">

@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
+use App\Mail\ResetPasswordMail;
+use App\Mail\SendOtpMail;
 
 
 use Laravel\Socialite\Facades\Socialite;
@@ -35,12 +39,12 @@ class AuthController extends Controller
         // buat agar dia memverifikasi email dulu dari kolom is_verified(boolean)
         // tpi kalau yang login  role nya admin, ndk perlu verifikasi
 
-        $user = User::where('email', $credentials['email'])->first();
-        if ($user->role != 'admin' && !$user->is_verified) {
-            return back()->withErrors([
-                'verify_email' => 'Email belum diverifikasi. silahkan hubugi Admin',
-            ]);
-        }
+        // $user = User::where('email', $credentials['email'])->first();
+        // if ($user->role != 'admin' && !$user->is_verified) {
+        //     return back()->withErrors([
+        //         'verify_email' => 'Email belum diverifikasi. silahkan hubugi Admin',
+        //     ]);
+        // }
 
 
         // Attempt to log the user in
@@ -79,15 +83,16 @@ class AuthController extends Controller
             'role' => $request->role ?? 'user',
         ]);
 
+
         // Set session untuk email yang akan diverifikasi
-        session(['verify_email' => $user->email]);
-        return $this->sendOtp($user, true); // true: from register
+        // session(['verify_email' => $user->email]);
+        // return $this->sendOtp($user, true); // true: from register
 
-        // // Set session with the registered email
-        // session(['registered_email' => $request->email]);
+        // Set session with the registered email
+        $request->session()->flash('registered_email', $request->email);
 
-        // // Redirect to the login page with a success message
-        // return redirect()->route('login')->with('success', 'Registration successful! Please login.');
+        // Redirect to the login page with a success message
+        return redirect()->route('login')->with('success', 'Registration successful! Please login.');
     }
 
     public function sendOtp($user = null, $fromRegister = false)
@@ -116,10 +121,19 @@ class AuthController extends Controller
         $user->otp_expires_at = now()->addMinutes(5);
         $user->save();
 
-        Mail::raw("Kode OTP kamu adalah: $otp (berlaku 5 menit)", function ($message) use ($user) {
-            $message->to($user->email)
-                ->subject('Verifikasi Email - PPDB SMK');
-        });
+        // Mail::raw("Kode OTP kamu adalah: $otp (berlaku 5 menit)", function ($message) use ($user) {
+        //     $message->to($user->email)
+        //         ->subject('Verifikasi Email - PPDB SMK');
+        // });
+
+        // Kirim email
+        $subject = 'OTP Verifikasi Email';
+        Mail::to($user->email)->send(new SendOtpMail(
+            $subject,
+            $user->name,
+            $otp,
+            $user->otp_expires_at->format('d M Y H:i:s')
+        ));
 
         session([
             'verify_email' => $user->email,
@@ -172,7 +186,7 @@ class AuthController extends Controller
         session()->forget(['verify_email', 'last_otp_sent']);
 
         // Set session with the registered email
-        session(['registered_email' => $user->email]);
+        $request->session()->flash('registered_email', $request->email);
 
         return redirect()->route('login')->with('success', 'Email berhasil diverifikasi! Silakan login.');
     }
@@ -181,10 +195,19 @@ class AuthController extends Controller
     {
 
 
-        // Jika tidak ada session verify_email, redirect ke login
-        if (!session('verify_email')) {
+        // Jika tidak ada session verify_email dan belum login, redirect ke login
+        if (!session('verify_email') && !Auth::check()) {
+            if (Auth::check()) {
+
+                // Jika sudah login, set session verify_email jika belum ada
+                // maka bisa asumsikan , user ini sedang memverifikasi email dari halaman dashboard
+                $this->sendOtp(Auth::user(), true);
+            }
+
             return redirect()->route('login');
         }
+
+
         // Tidak mengubah session apapun, hanya hitung cooldown dari session
         $cooldown = 0;
         $setResendOtp = 60;
@@ -219,7 +242,6 @@ class AuthController extends Controller
             'name' => $socialUser->name,
             'provider' => $provider,
             'provider_id' => $socialUser->getId(),
-            'password' => bcrypt(Str::random(16)),
             'avatar' => $socialUser->getAvatar(),
             'is_verified' => true
         ]);
@@ -228,6 +250,98 @@ class AuthController extends Controller
 
         return redirect('/dashboard');
     }
+
+
+    // Form untuk request reset
+    public function showRequestForm()
+    {
+        return view('auth.forgot-password.email');
+    }
+
+    // Kirim email reset
+    public function sendResetLink(Request $request)
+    {
+
+        $request->validate(['email' => 'required|email']);
+
+        // cek apakah email ada di db
+
+        $user  = User::whereEmail($request->email)->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email tidak terdaftar dalam sistem kami']);
+        }
+
+        $token = Str::random(64);
+
+
+        DB::table('password_reset_tokens')->updateOrInsert(
+            ['email' => $request->email],
+            ['token' => $token, 'created_at' => now()]
+        );
+
+        $resetLink = route('password.reset',  ['token' => $token]);
+
+        // Kirim email
+        Mail::to($request->email)->send(new ResetPasswordMail(
+            $user->name,   // nama user jika ada
+            $resetLink,
+            now()->addMinutes(5)->format('d M Y H:i:s')
+        ));
+
+        return redirect()->route('login')->with('success', 'Bila email ada, maka email untuk mengubah password akan dikirim ke email yang Anda masukkan');
+    }
+
+    // Form untuk reset password
+    public function showResetForm($token)
+    {
+        $getEmail = DB::table('password_reset_tokens')
+            ->where('token', $token)
+            ->firstOrFail();
+        $user = User::whereEmail($getEmail->email)->firstOrFail();
+
+        return view('auth.forgot-password.reset', compact('token', 'user'));
+    }
+
+    // Update password user
+    public function resetPassword(Request $request)
+    {
+
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6|confirmed',
+            'token' => 'required'
+        ]);
+
+        $reset = DB::table('password_reset_tokens')
+            ->where('email', $request->email)
+            ->where('token', $request->token)
+            ->first();
+
+
+        if (!$reset) {
+            return redirect()->route('forgot_password.email_form')->withErrors(['email' => 'Token tidak valid.']);
+        }
+
+        // Cek apakah token expired (lebih dari 5 menit)
+        $createdAt =  abs((int) now()->diffInMinutes($reset->created_at));
+
+        if ($createdAt > 5) {
+            return redirect()->route('forgot_password.email_form')->withErrors(['email' => 'Token sudah kadaluarsa, silakan request ulang.']);
+        }
+
+        // Update password user
+        User::where('email', $request->email)->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        // Hapus token biar sekali pakai
+        DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+        // Set session with the registered email
+        $request->session()->flash('registered_email', $request->email);
+        return redirect('/login')->with('success', 'Password berhasil direset!, Silahkan Login menggunakan password baru Anda');
+    }
+
 
     public function logout(Request $request)
     {

@@ -11,8 +11,11 @@ Route::get('/', function () {
 Route::get('/contact-us', function () {
     return view('contact');
 });
+Route::get('/verify-email', [AuthController::class, 'showVerifyForm'])->name('verify.form');
 
+Route::post('/send-otp', [AuthController::class, 'sendOtp'])->name('send.otp');
 
+Route::post('/verify-email', [AuthController::class, 'verify'])->name('verify.otp');
 // Route yang hanya bisa diakses oleh user yang belum login
 Route::middleware(['guest'])->group(
     function () {
@@ -23,14 +26,19 @@ Route::middleware(['guest'])->group(
         Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 
-        Route::get('/verify-email', [AuthController::class, 'showVerifyForm'])->name('verify.form');
 
-        Route::post('/send-otp', [AuthController::class, 'sendOtp'])->name('send.otp');
-
-        Route::post('/verify-email', [AuthController::class, 'verify'])->name('verify.otp');
 
         Route::get('/auth/{provider}', [AuthController::class, 'redirect'])->name('sso.redirect');
         Route::get('/auth/{provider}/callback', [AuthController::class, 'callback'])->name('sso.callback');
+
+
+        // Request reset link
+        Route::get('/forgot-password', [AuthController::class, 'showRequestForm'])->name('forgot_password.email_form');
+        Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot_password.send_link');
+
+        // Reset password form
+        Route::get('/password-reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
+        Route::post('/password-reset', [AuthController::class, 'resetPassword'])->name('password.update');
     }
 );
 
