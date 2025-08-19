@@ -2,6 +2,7 @@
 <html lang="en">
 
     <head>
+
         <title>@yield('title') - Aplikasi PPDB SMK</title>
         <!-- [Meta] -->
         <meta charset="utf-8">
@@ -57,10 +58,10 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-md navbar-dark top-nav-collapse default">
+        <nav class="navbar navbar-expand-md navbar-dark top-nav-collapse default py-0">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <span class="logo-text fw-bold">Aplikasi PPDB SMK</span>
+                    <img width="70" src="{{ asset('assets/images/my/logo-black-tp.png') }}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
@@ -97,59 +98,48 @@
         <!-- [ Pre-loader ] End -->
         @yield('content')
         <footer class="footer bg-dark text-white py-4">
-            @if (request()->is('/'))
-                <div class="top-footer footer-moke pb-0">
-                    <img style="clip-path: inset(110px 0 0 0); margin-top: -110px;"
-                        src="../assets/images/landing/img-theme-dark-1.jpg" alt="img" data-img-type=".png"
-                        class="img-fluid img-footer mx-auto img-landing"
-                        data-img="../assets/images/landing/img-footer-moke-">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-5 text-center text-md-start">
-                                <h6 class="mb-0 text-white">Road map</h6>
-                                <h2 class="my-3 text-white">Upcoming Release</h2>
-                                <p class="mb-3 text-white">What is next? Checkout the Upcoming release of Mantis React.
-                                </p>
-                                <button class="btn btn-primary">Road map <i class="ti ti-brand-telegram"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            <div class="top-footer ">
+            <div class="top-footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="../assets/images/pages/codedthemes-logo.svg" alt="image"
-                                class="img-fluid mb-3">
-                            <p>Since 2017, More than 50K+ Developers trust the CodedThemes Digital Product. Mantis is
-                                Manage under
-                                their Experienced Team Players.</p>
+                            <img src="{{ asset('assets/images/my/logo-black-tp.png') }}"
+                                alt="Logo Sekolah Harapan Bangsa" class="img-fluid mb-3" style="max-width: 200px;">
+                            <p class="opacity-75">Sekolah Harapan Bangsa berkomitmen untuk mencetak generasi penerus
+                                yang cerdas, kreatif, dan berakhlak mulia melalui pendidikan berkualitas.</p>
                         </div>
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <h5 class="text-white mb-4">Explore us</h5>
+                                    <h5 class="text-white mb-4">Navigasi</h5>
                                     <ul class="list-unstyled footer-link">
-                                        <li><a href="#">Purchase Mantis React</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="/#alur">Alur Pendaftaran</a></li>
+                                        <li><a href="#">Pengumuman</a></li>
+                                        <li><a href="/contact">Kontak</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-4">
-                                    <h5 class="text-white mb-4">Help</h5>
+                                    <h5 class="text-white mb-4">Hubungi Kami</h5>
                                     <ul class="list-unstyled footer-link">
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Github</a></li>
-                                        <li><a href="#">Change Log</a></li>
+                                        <li class="d-flex">
+                                            <i class="ti ti-map-pin me-2 mt-1"></i>
+                                            <span>Jl. Pendidikan No. 123, Jakarta Selatan, Indonesia</span>
+                                        </li>
+                                        <li class="d-flex">
+                                            <i class="ti ti-mail me-2 mt-1"></i>
+                                            <span>info@harapanbangsa.sch.id</span>
+                                        </li>
+                                        <li class="d-flex">
+                                            <i class="ti ti-phone me-2 mt-1"></i>
+                                            <span>(021) 123-4567</span>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-4">
-                                    <h5 class="text-white mb-4">More Products</h5>
+                                    <h5 class="text-white mb-4">Tautan Lainnya</h5>
                                     <ul class="list-unstyled footer-link">
-                                        <li><a href="#">Berry React Material</a></li>
-                                        <li><a href="#">Berry React Free</a></li>
-                                        <li><a href="#">Mantis Free React</a></li>
+                                        <li><a href="#">Kebijakan Privasi</a></li>
+                                        <li><a href="#">Syarat & Ketentuan</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -161,12 +151,17 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col my-1">
-                            <p class="text-white mb-0">© Made with love by Team CodedThemes</p>
+                            <p class="text-white mb-0">© {{ date('Y') }} Sekolah Harapan Bangsa. Hak Cipta
+                                Dilindungi.</p>
                         </div>
                         <div class="col-auto my-1">
                             <ul class="list-inline footer-sos-link mb-0">
-                                <li class="list-inline-item"><a href="https://fb.com/codedthemes"><i
+                                <li class="list-inline-item"><a href="#"><i
                                             class="ph-duotone ph-facebook-logo f-20"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="ph-duotone ph-instagram-logo f-20"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i
+                                            class="ph-duotone ph-youtube-logo f-20"></i></a></li>
                             </ul>
                         </div>
                     </div>

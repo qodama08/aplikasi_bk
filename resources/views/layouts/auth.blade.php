@@ -49,10 +49,11 @@
 
         <div class="auth-main">
             <div class="auth-wrapper v3">
-                <div class="auth-form">
+                <div class="auth-form"
+                    style="background-image: url({{ asset('assets/images/my/logo-tp.png') }});background-size:cover;">
                     <div class="auth-header">
                         <a class="navbar-brand" href="/">
-                            <span class="logo-text fw-bold fs-4">Aplikasi PPDB SMK</span>
+                            <img width="100" src="{{ asset('assets/images/my/logo-tp.png') }}" alt="logo">
                         </a>
                     </div>
 

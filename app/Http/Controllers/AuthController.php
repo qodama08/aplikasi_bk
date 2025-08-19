@@ -188,20 +188,21 @@ class AuthController extends Controller
         // Set session with the registered email
         $request->session()->flash('registered_email', $request->email);
 
-        return redirect()->route('login')->with('success', 'Email berhasil diverifikasi! Silakan login.');
+        return redirect()->route('dashboard')->with('success', 'Email berhasil diverifikasi!');
     }
     // Tampilkan form verifikasi email
-    public function showVerifyForm(Request $request)
+    public function showVerifyForm()
     {
 
 
         // Jika tidak ada session verify_email dan belum login, redirect ke login
-        if (!session('verify_email') && !Auth::check()) {
+        if (!session('verify_email') || !Auth::check()) {
             if (Auth::check()) {
 
                 // Jika sudah login, set session verify_email jika belum ada
                 // maka bisa asumsikan , user ini sedang memverifikasi email dari halaman dashboard
-                $this->sendOtp(Auth::user(), true);
+                $user = Auth::user();
+                return $this->sendOtp($user, true);
             }
 
             return redirect()->route('login');

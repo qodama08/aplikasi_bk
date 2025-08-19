@@ -1,64 +1,51 @@
 @extends('layouts.landing')
 
-@section('title', 'Welcome')
+@section('title', 'Selamat Datang di PPDB Online')
 
 
 @section('content')
     <!-- [ Header ] start -->
-    <header id="home">
-        <!-- [ Nav ] start -->
+    <header id="home" class="d-flex align-items-center"
+        style="position: relative; min-height: 100dvh; background: url('{{ asset('assets/images/my/hero-section.png') }}') no-repeat center center; background-size: cover;">
+        <!-- Overlay -->
+        <div
+            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));">
+        </div>
 
-
-        <div class="row pt-5">
-            <div class="col-lg-6">
-                <img src="../assets/images/landing/bg-mockup-theme-1.png" alt="img"
-                    class="img-fluid img-home-mokeup img-landing" data-img="../assets/images/landing/bg-mockup-theme-"
-                    data-img-type=".png">
-            </div>
-            <div class="col-lg-6">
-                <div class="container">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-12">
-                            <h1 class="mt-sm-3 text-white mb-4 f-w-600 wow fadeInUp" data-wow-delay="0.2s">Carefully
-                                Crafted
-                                for your
-                                <span class="text-primary">Caring React</span> Project
-                            </h1>
-                            <h5 class="mb-4 text-white opacity-75 wow fadeInUp" data-wow-delay="0.4s"> Mantis React
-                                is a
-                                blazing-fast
-                                dashboard template built using the MUI React library.</h5>
-                            <div class="my-5 wow fadeInUp" data-wow-delay="0.6s">
-                                <a href="../elements/bc_alert.html" class="btn btn-outline-primary me-2"
-                                    target="_blank">Explore Components</a>
-                                <a href="../dashboard/index.html" class="btn btn-primary d-inline-flex align-items-center"
-                                    target="_blank"> <i class="ti ti-eye me-1"></i> Live Preview</a>
-                            </div>
-                            <img src="../assets/images/landing/img-headertech.svg" alt="img"
-                                class="img-fluid wow fadeInUp" data-wow-delay="0.8s">
-                        </div>
-                        <div class="col-lg-7">
-                        </div>
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8 text-center">
+                    <h1 class="mt-sm-3 text-white mb-4 f-w-600 wow fadeInUp" data-wow-delay="0.2s" style="font-size: 3.5rem;">
+                        Selamat Datang di PPDB Online
+                        <br>
+                        <span class="text-primary">Sekolah Harapan Bangsa</span>
+                    </h1>
+                    <h5 class="mb-4 text-white opacity-75 wow fadeInUp" data-wow-delay="0.4s" style="font-size: 1.25rem;">
+                        Wujudkan Masa Depan Gemilang Melalui Pendidikan Berkualitas.
+                        <br class="d-none d-md-block">
+                        Daftar dengan mudah dan cepat melalui sistem pendaftaran siswa baru kami.
+                    </h5>
+                    <div class="my-5 wow fadeInUp" data-wow-delay="0.6s">
+                        <a href="{{ route('register') }}"
+                            class="btn btn-primary btn-lg d-inline-flex align-items-center me-2" target="_blank">Daftar
+                            Sekarang <i class="ti ti-arrow-right ms-2"></i></a>
+                        <a href="#alur" class="btn btn-outline-light btn-lg me-2">Lihat Alur Pendaftaran</a>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
     </header>
     <!-- [ Header ] End -->
-    <!-- [ Why Mantis ] start -->
+
+    <!-- [ Keunggulan Kami ] start -->
     <section>
         <div class="container title">
             <div class="row justify-content-center text-center wow fadeInUp" data-wow-delay="0.2s">
                 <div class="col-md-10 col-xl-6">
-                    <h5 class="text-primary mb-0">Mantis nailed it!</h5>
-                    <h2 class="my-3">Why Mantis?</h2>
-                    <p class="mb-0">Customize everything with the MantisAdmin Dashboard Template built with
-                        latest Bootstrap v5
-                        component library</p>
+                    <h5 class="text-primary mb-0">Pendidikan Terbaik</h5>
+                    <h2 class="my-3">Mengapa Memilih Sekolah Kami?</h2>
+                    <p class="mb-0">Kami berkomitmen untuk menyediakan lingkungan belajar yang inspiratif dengan kurikulum
+                        terbaik untuk masa depan cerah putra-putri Anda.</p>
                 </div>
             </div>
         </div>
@@ -67,113 +54,127 @@
                 <div class="col-sm-6 col-lg-4">
                     <div class="card wow fadeInUp" data-wow-delay="0.4s">
                         <div class="card-body">
-                            <img src="../assets/images/landing/img-feature1.svg" alt="img" class="img-fluid">
-                            <h5 class="my-3">Professional Design</h5>
-                            <p class="mb-0 text-muted">Mantis has fully professional grade user interface for any
-                                kind of backend
-                                project.</p>
+                            <img src="../assets/images/landing/img-feature1.svg"
+                                alt="Ruang kelas modern dengan proyektor dan kursi ergonomis" class="img-fluid">
+                            <h5 class="my-3">Fasilitas Modern</h5>
+                            <p class="mb-0 text-muted">Lingkungan belajar nyaman dengan fasilitas terkini, dari lab,
+                                perpustakaan, hingga sarana olahraga lengkap.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="card wow fadeInUp" data-wow-delay="0.6s">
                         <div class="card-body">
-                            <img src="../assets/images/landing/img-feature2.svg" alt="img" class="img-fluid">
-                            <h5 class="my-3">Flexible Solution</h5>
-                            <p class="mb-0 text-muted">Highly flexible to work around using Mantis React Template.
-                            </p>
+                            <img src="../assets/images/landing/img-feature2.svg"
+                                alt="Guru sedang mengajar di depan kelas menggunakan papan tulis interaktif"
+                                class="img-fluid">
+                            <h5 class="my-3">Kurikulum Unggulan</h5>
+                            <p class="mb-0 text-muted">Kurikulum dirancang untuk mengembangkan potensi akademik dan
+                                non-akademik siswa secara seimbang.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="card wow fadeInUp" data-wow-delay="0.8s">
                         <div class="card-body">
-                            <img src="../assets/images/landing/img-feature3.svg" alt="img" class="img-fluid">
-                            <h5 class="my-3">Effective Documentation</h5>
-                            <p class="mb-0 text-muted">Need help? Check out the detailed Documentation guide.</p>
+                            <img src="../assets/images/landing/img-feature3.svg"
+                                alt="Sekelompok guru yang ramah dan profesional berdiskusi di ruang guru" class="img-fluid">
+                            <h5 class="my-3">Pendidik Profesional</h5>
+                            <p class="mb-0 text-muted">Didukung oleh guru berpengalaman dan berdedikasi dalam membimbing
+                                siswa menjadi pribadi cerdas dan berkarakter.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- [ Why Mantis ] End -->
-    <!-- [ Complete Combo ] start -->
-    <section class="pt-0">
+    <!-- [ Keunggulan Kami ] End -->
+
+    <!-- [ Alur Pendaftaran ] start -->
+    <section class="pt-0" id="alur">
         <div class="container title">
             <div class="row justify-content-center text-center wow fadeInUp" data-wow-delay="0.2s">
                 <div class="col-md-10 col-xl-6">
-                    <h5 class="text-primary mb-0">Mantis for All</h5>
-                    <h2 class="my-3">Complete Combo</h2>
-                    <p class="mb-0">Wheather you are developer or designer, Mantis serve the need of all - No
-                        matter you are
-                        novice or expert</p>
+                    <h5 class="text-primary mb-0">Proses Cepat & Mudah</h5>
+                    <h2 class="my-3">Alur Pendaftaran</h2>
+                    <p class="mb-0">Ikuti 4 langkah mudah untuk menjadi bagian dari keluarga besar Sekolah Harapan Bangsa.
+                    </p>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="card-body">
-                            <h3 class="mb-3">Design Source File</h3>
-                            <p class="mb-4 text-muted">Check the live preview of Mantis figma design file. Figma
-                                file included in Plus
-                                and Extended License only.</p>
-                            <button class="btn btn-outline-primary">Preview Figma <i class="ti ti-brand-figma"></i></button>
-                        </div>
-                        <div class="card-body pb-0 pe-0">
-                            <img src="../assets/images/landing/img-demo1.jpg" alt="img" class="img-fluid w-100">
+                        <div class="card-body text-center">
+                            <i class="ti ti-user-plus f-36 text-primary"></i>
+                            <h5 class="my-3">1. Buat Akun</h5>
+                            <p class="mb-0 text-muted">Daftarkan diri Anda dengan mengisi email dan password untuk membuat
+                                akun.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="card-body bg-light-primary">
-                            <h3 class="mb-3">Components</h3>
-                            <p class="mb-4 text-muted">Check the all components of Mantis in single place with
-                                search feature for
-                                easing your development while working.</p>
-                            <button class="btn btn-primary">View All Components</button>
-                        </div>
-                        <div class="card-body bg-light-primary pb-0 pe-0">
-                            <img src="../assets/images/landing/img-demo2.jpg" alt="img" class="img-fluid w-100">
+                        <div class="card-body text-center">
+                            <i class="ti ti-file-text f-36 text-primary"></i>
+                            <h5 class="my-3">2. Lengkapi Data</h5>
+                            <p class="mb-0 text-muted">Login dan lengkapi formulir biodata serta unggah dokumen yang
+                                diperlukan.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-3">
                     <div class="card wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="card-body">
-                            <h3 class="mb-3">Documentation</h3>
-                            <p class="mb-4 text-muted">From Quick start to detailed installation with super easy
-                                navigation for find
-                                out solution of your queries with complex documentation guide.</p>
-                            <button class="btn btn-outline-primary">Explore Documentation</button>
+                        <div class="card-body text-center">
+                            <i class="ti ti-search f-36 text-primary"></i>
+                            <h5 class="my-3">3. Proses Seleksi</h5>
+                            <p class="mb-0 text-muted">Tim kami akan melakukan verifikasi dan seleksi terhadap berkas
+                                pendaftaran Anda.</p>
                         </div>
-                        <div class="card-body pb-0 pe-0">
-                            <img src="../assets/images/landing/img-demo3.jpg" alt="img" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card wow fadeInUp" data-wow-delay="1.0s">
+                        <div class="card-body text-center">
+                            <i class="ti ti-bell f-36 text-primary"></i>
+                            <h5 class="my-3">4. Pengumuman</h5>
+                            <p class="mb-0 text-muted">Hasil seleksi akan diumumkan secara online melalui akun Anda
+                                masing-masing.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- [ Complete Combo ] End -->
+    <!-- [ Alur Pendaftaran ] End -->
+
     <!-- [ CTA ] start -->
-    <section class="bg-dark cta-block">
-        <img src="../assets/images/landing/img-bg-screen.svg" alt="img" class="img-cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 text-center text-md-start">
-                    <h2 class="text-white mb-4">Check Mantis <span class="text-primary"> Free </span> Version
-                        Before Purchase</h2>
-                    <button class="btn btn-primary"><i class="ti ti-download"></i> Download Now</button>
+    <section class="cta-block"
+        style="position: relative; padding: 120px 0; background: url('{{ asset('assets/images/my/join-us.png') }}') no-repeat center center; background-size: cover; background-attachment: fixed;">
+        <!-- Overlay -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="text-white mb-4" style="font-size: 2.8rem; font-weight: 600;">Siap Bergabung dengan <span
+                            class="text-primary">Sekolah Harapan
+                            Bangsa?</span></h2>
+                    <p class="text-white opacity-75 mb-4 lead">Pendaftaran akan segera ditutup. Jangan lewatkan
+                        kesempatan untuk
+                        menjadi siswa berprestasi di sekolah kami. Klik tombol di bawah untuk memulai proses pendaftaran.
+                    </p>
+                    <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Daftar Sekarang <i
+                            class="ti ti-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
     </section>
     <!-- [ CTA ] End -->
-    <!-- [ number ] start -->
+
+    <!-- [ Statistik ] start -->
     <section class="bg-white">
         <div class="container">
             <div class="row">
@@ -182,11 +183,11 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-shrink-0">
-                                    <h2 class="m-0">128+</h2>
+                                    <h2 class="m-0 text-primary">1200+</h2>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h4 class="mb-2">Pages</h4>
-                                    <p class="mb-0">Hand Crafted useful pages with best user experience.</p>
+                                    <h4 class="mb-2">Total Pendaftar</h4>
+                                    <p class="mb-0">Antusiasme tinggi dari calon siswa baru setiap tahunnya.</p>
                                 </div>
                             </div>
                         </div>
@@ -197,11 +198,11 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-shrink-0">
-                                    <h2 class="m-0">200+</h2>
+                                    <h2 class="m-0 text-primary">350</h2>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h4 class="mb-2">MUI Components</h4>
-                                    <p class="mb-0">Made using MUI React v5 - A Most popular React Platform.</p>
+                                    <h4 class="mb-2">Kursi Tersedia</h4>
+                                    <p class="mb-0">Kuota terbatas untuk menjaga kualitas proses belajar mengajar.</p>
                                 </div>
                             </div>
                         </div>
@@ -212,11 +213,11 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-shrink-0">
-                                    <h2 class="m-0">5+</h2>
+                                    <h2 class="m-0 text-primary">3</h2>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h4 class="mb-2">Conceptual Apps</h4>
-                                    <p class="mb-0">Find out 5+ working apps which suits your React Project.</p>
+                                    <h4 class="mb-2">Jurusan Unggulan</h4>
+                                    <p class="mb-0">Pilihan jurusan yang relevan dengan kebutuhan industri saat ini.</p>
                                 </div>
                             </div>
                         </div>
@@ -225,186 +226,17 @@
             </div>
         </div>
     </section>
-    <!-- [ number ] End -->
-    <!-- [ light/dark ] start -->
-    <section class="position-relative p-0">
-        <h2 class="sr-only"><span>temp</span></h2>
-        <div class="img-comp-container row">
-            <div class="img-comp-img col-md-6">
-                <img src="../assets/images/landing/img-theme-light-1.jpg" alt="img" data-img-type=".jpg"
-                    class="img-landing img-fluid" data-img="../assets/images/landing/img-theme-light-">
-            </div>
-            <div class="img-comp-img  col-md-6">
-                <img src="../assets/images/landing/img-theme-dark-1.jpg" alt="img" data-img-type=".jpg"
-                    class="img-landing img-fluid" data-img="../assets/images/landing/img-theme-dark-">
-            </div>
-        </div>
-    </section>
-    <!-- [ light/dark ] End -->
-    <!-- [ webapp ] start -->
-    <section class="webapp-block">
-        <div class="container title">
-            <div class="row justify-content-center text-center wow fadeInUp" data-wow-delay="0.2s">
-                <div class="col-md-10 col-xl-6">
-                    <h2 class="mb-3">Create Beautiful Yet Powerful <span class="text-primary"> web apps </span>
-                        with Mantis React
-                    </h2>
-                    <p class="mb-0">Create your powerful backend project using powerful design system of Mantis
-                        React Template.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-9 position-relative img-webapp-block">
-                    <img src="../assets/images/landing/img-element-main-theme-1.png" alt="img" data-img-type=".png"
-                        class="img-landing img-fluid" data-img="../assets/images/landing/img-element-main-theme-">
-                    <img src="../assets/images/landing/img-element-msg.png" alt="img" class="img-fluid img-msg">
-                    <img src="../assets/images/landing/img-element-widget.png" alt="img"
-                        class="img-fluid img-widget">
-                </div>
-                <div class="col-lg-9 position-relative img-webapp-block">
-                    <div class="row mt-5">
-                        <div class="col-md-4">
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Auth Methods : JWT, Auth0,
-                                    Firebase</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Code Splitting</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">RTL Support</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Internationalization Support</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">React Hooks</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Light/Dark, Semi Dark Support</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Mock API</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Google Fonts</span>
-                            </div>
-                            <div class="d-flex align-items-center my-3">
-                                <i class="ti ti-circle-check f-24 text-primary"></i>
-                                <span class="ms-2 text-dark opacity-75 lh-1">Prettier Code Style</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- [ webapp ] End -->
-    <!-- [ Why Mantis ] start -->
-    <section class="client-block">
-        <div class="container title">
-            <div class="row justify-content-center text-center wow fadeInUp" data-wow-delay="0.2s">
-                <div class="col-md-10 col-xl-6">
-                    <h5 class="text-primary mb-0">Mantis nailed it!</h5>
-                    <h2 class="my-3">Why Mantis?</h2>
-                    <p class="mb-0">Customize everything with the MantisAdmin Dashboard Template built with
-                        latest Bootstrap v5
-                        component library</p>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row align-items-center justify-content-center mb-4 mb-md-5">
-                <div class="col-auto my-2">
-                    <img src="../assets/images/landing/client-01.png" alt="img" class="img-fluid wow fadeInUp"
-                        data-wow-delay="0.2s">
-                </div>
-                <div class="col-auto my-2">
-                    <img src="../assets/images/landing/client-02.png" alt="img" class="img-fluid wow fadeInUp"
-                        data-wow-delay="0.4s">
-                </div>
-                <div class="col-auto my-2">
-                    <img src="../assets/images/landing/client-03.png" alt="img" class="img-fluid wow fadeInUp"
-                        data-wow-delay="0.6s">
-                </div>
-                <div class="col-auto my-2">
-                    <img src="../assets/images/landing/client-04.png" alt="img" class="img-fluid wow fadeInUp"
-                        data-wow-delay="0.8s">
-                </div>
-            </div>
-        </div>
-        <div class="marquee marquee-text">
-            <ul class="list-inline marquee-list h2">
-                <li class="list-inline-item">Auth Methods</li>
-                <li class="list-inline-item">150+ Pages</li>
-                <li class="list-inline-item">6+ Preset Colors</li>
-                <li class="list-inline-item">50+ Widgets</li>
-                <li class="list-inline-item">Best User Experience</li>
-                <li class="list-inline-item">Live Customizer</li>
-                <li class="list-inline-item">5+ Apps</li>
-                <li class="list-inline-item">Material UI v5</li>
-                <li class="list-inline-item">Highly Flexible</li>
-                <li class="list-inline-item">Always Updated</li>
-                <li class="list-inline-item">Professional Design</li>
-                <li class="list-inline-item">TypeScript Support</li>
-                <li class="list-inline-item">Figma Design</li>
-                <li class="list-inline-item">Dark Layout</li>
-                <li class="list-inline-item">RTL Support</li>
-                <li class="list-inline-item">Retina Ready</li>
-                <li class="list-inline-item">Prettier Code</li>
-                <li class="list-inline-item">i18n Support</li>
-            </ul>
-        </div>
-        <div class="marquee-1 marquee-text">
-            <ul class="list-inline marquee-list h2">
-                <li class="list-inline-item">Retina Ready</li>
-                <li class="list-inline-item">Prettier Code</li>
-                <li class="list-inline-item">i18n Support</li>
-                <li class="list-inline-item">Auth Methods</li>
-                <li class="list-inline-item">150+ Pages</li>
-                <li class="list-inline-item">6+ Preset Colors</li>
-                <li class="list-inline-item">50+ Widgets</li>
-                <li class="list-inline-item">Always Updated</li>
-                <li class="list-inline-item">Professional Design</li>
-                <li class="list-inline-item">TypeScript Support</li>
-                <li class="list-inline-item">Figma Design</li>
-                <li class="list-inline-item">Dark Layout</li>
-                <li class="list-inline-item">RTL Support</li>
-                <li class="list-inline-item">Best User Experience</li>
-                <li class="list-inline-item">Live Customizer</li>
-                <li class="list-inline-item">5+ Apps</li>
-                <li class="list-inline-item">Material UI v5</li>
-                <li class="list-inline-item">Highly Flexible</li>
-            </ul>
-        </div>
-    </section>
-    <!-- [ Why Mantis ] End -->
+    <!-- [ Statistik ] End -->
 
-    <!-- [ Customers Voice ] start -->
+    <!-- [ Testimoni ] start -->
     <section class="pt-0">
         <div class="container title">
             <div class="row justify-content-center text-center wow fadeInUp" data-wow-delay="0.2s">
                 <div class="col-md-10 col-xl-6">
-                    <h5 class="text-primary mb-0">Testament</h5>
-                    <h2 class="my-3">Customers Voice</h2>
-                    <p class="mb-0">We have proven records in Dashboard development with an average 4.9/5
-                        ratings. We are glad to
-                        show such a warm reviews from our loyal customers.</p>
+                    <h5 class="text-primary mb-0">Testimoni</h5>
+                    <h2 class="my-3">Apa Kata Mereka?</h2>
+                    <p class="mb-0">Kami bangga dapat memberikan dampak positif. Simak pengalaman para alumni dan orang
+                        tua siswa kami.</p>
                 </div>
             </div>
         </div>
@@ -415,25 +247,19 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <img src="../assets/images/landing/img-user1.svg" alt="img"
-                                        class="img-fluid wid-40">
+                                    <img src="../assets/images/user/avatar-1.jpg"
+                                        alt="Foto close-up alumni pria tersenyum" class="img-fluid wid-40 rounded-circle">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h5 class="mb-1">Code Quality</h5>
+                                    <h5 class="mb-1">Lingkungan Belajar Kondusif</h5>
                                     <div class="star f-12 mb-3">
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star-half-alt text-warning"></i>
-                                        <i class="far fa-star text-muted"></i>
+                                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
                                     </div>
-                                    <p class="mb-2 text-muted">Fantastic design and good code
-                                        quality. Its a great starting point for any new project. They provide plenty
-                                        of pre made
-                                        components, page views, and authentication options. Definitely the best Ive
-                                        found for Material
-                                        UI in Typescript.</p>
-                                    <h6 class="mb-0">Felipe F.</h6>
+                                    <p class="mb-2 text-muted">Sekolah ini memberikan fondasi yang kuat untuk saya
+                                        melanjutkan ke perguruan tinggi favorit. Guru-gurunya sangat mendukung.</p>
+                                    <h6 class="mb-0">Budi Santoso, Alumni</h6>
                                 </div>
                             </div>
                         </div>
@@ -444,23 +270,21 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <img src="../assets/images/landing/img-user1.svg" alt="img"
-                                        class="img-fluid wid-40">
+                                    <img src="../assets/images/user/avatar-2.jpg"
+                                        alt="Foto close-up orang tua siswa wanita tersenyum"
+                                        class="img-fluid wid-40 rounded-circle">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h5 class="mb-1">Code Quality</h5>
+                                    <h5 class="mb-1">Pengembangan Karakter</h5>
                                     <div class="star f-12 mb-3">
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star-half-alt text-warning"></i>
-                                        <i class="far fa-star text-muted"></i>
+                                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star-half-alt text-warning"></i>
                                     </div>
-                                    <p class="mb-2 text-muted">Great template. Very well written code and good
-                                        structure. Very
-                                        customizable and tons of nice components. Good documentation. Team is very
-                                        responsive too.</p>
-                                    <h6 class="mb-0">Besart M.</h6>
+                                    <p class="mb-2 text-muted">Anak saya berkembang pesat di sini, tidak hanya akademis
+                                        tapi juga karakternya. Lingkungannya sangat positif.</p>
+                                    <h6 class="mb-0">Rina Wulandari, Orang Tua Siswa</h6>
                                 </div>
                             </div>
                         </div>
@@ -471,48 +295,20 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex-shrink-0">
-                                    <img src="../assets/images/landing/img-user1.svg" alt="img"
-                                        class="img-fluid wid-40">
+                                    <img src="../assets/images/user/avatar-3.jpg"
+                                        alt="Foto close-up alumni wanita berhijab tersenyum"
+                                        class="img-fluid wid-40 rounded-circle">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h5 class="mb-1">Customizability</h5>
+                                    <h5 class="mb-1">Fasilitas Sangat Memadai</h5>
                                     <div class="star f-12 mb-3">
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star-half-alt text-warning"></i>
-                                        <i class="far fa-star text-muted"></i>
+                                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i
+                                            class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
                                     </div>
-                                    <p class="mb-2 text-muted">Excellent design, you can use in a
-                                        new project or include in your current project. Multiple components for any
-                                        use. Good code
-                                        quality. Great customer service and support.</p>
-                                    <h6 class="mb-0">Rodrigo J.</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card wow fadeInRight" data-wow-delay="0.8s">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0">
-                                    <img src="../assets/images/landing/img-user1.svg" alt="img"
-                                        class="img-fluid wid-40">
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <h5 class="mb-1">Design Quality</h5>
-                                    <div class="star f-12 mb-3">
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star-half-alt text-warning"></i>
-                                        <i class="far fa-star text-muted"></i>
-                                    </div>
-                                    <p class="mb-2 text-muted">there is no mistake, great design and organized
-                                        code, thank you ...</p>
-                                    <h6 class="mb-0">Yang Z.</h6>
+                                    <p class="mb-2 text-muted">Fasilitasnya lengkap dan modern, membuat kegiatan belajar
+                                        mengajar menjadi sangat efektif dan menyenangkan.</p>
+                                    <h6 class="mb-0">Siti Aminah, Alumni</h6>
                                 </div>
                             </div>
                         </div>
@@ -521,8 +317,5 @@
             </div>
         </div>
     </section>
-    <!-- [ Customers Voice ] End -->
-    <!-- [ footer ] start -->
-
-
+    <!-- [ Testimoni ] End -->
 @endsection

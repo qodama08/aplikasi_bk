@@ -18,8 +18,14 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('verify.form') }}" class="btn btn-warning btn-sm fw-bold">Verifikasi
+                        <a href="{{ route('verify.form') }}" id="verify-button"
+                            class="btn btn-warning btn-sm fw-bold">Verifikasi
                             Sekarang</a>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
                     </div>
                 @endif
                 <p class="lead mb-4">
@@ -65,3 +71,18 @@
         </div>
     </div>
 </div>
+<script>
+    // Script to handle the verification button click state
+    const verifyButton = document.getElementById('verify-button');
+
+    if (verifyButton) {
+        verifyButton.addEventListener('click', function() {
+            // Disable the button and show processing text
+            this.classList.add('disabled');
+            this.innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Processing...
+            `;
+        });
+    }
+</script>
