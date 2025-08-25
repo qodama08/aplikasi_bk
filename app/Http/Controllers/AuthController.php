@@ -235,6 +235,17 @@ class AuthController extends Controller
     }
     public function callback($provider)
     {
+        // ambil URL full sekarang
+        $currentUrl = request()->fullUrl();
+
+        // cek apakah mengandung 'localhost'
+        if (str_contains($currentUrl, 'localhost')) {
+            // ganti localhost -> 127.0.0.1
+            $newUrl = str_replace('localhost', '127.0.0.1', $currentUrl);
+
+            // redirect ke URL baru
+            return redirect()->to($newUrl);
+        }
         $socialUser = Socialite::driver($provider)->user();
 
         $user = User::updateOrCreate([
