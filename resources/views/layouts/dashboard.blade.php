@@ -338,7 +338,11 @@
         </script>
 
 
-
+        <script>
+            if (window.location.hash === '#_=_') {
+                history.replaceState(null, null, window.location.pathname);
+            }
+        </script>
     </body>
     <!-- [Body] end -->
 
