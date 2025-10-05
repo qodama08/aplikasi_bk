@@ -48,6 +48,21 @@ services:
         networks:
             - laravel
 
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: laravel-phpmyadmin
+        restart: unless-stopped
+        ports:
+            - "8081:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: laravel
+            PMA_PASSWORD: laravel
+        depends_on:
+            - mysql
+        networks:
+            - laravel
+
 networks:
     laravel:
         driver: bridge
