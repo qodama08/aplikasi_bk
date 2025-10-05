@@ -2,11 +2,17 @@ services:
     php:
         build:
             context: .
-            dockerfile: docker/php/Dockerfile
+            dockerfile: Dockerfile
         container_name: laravel-php
         volumes:
             - .:/var/www
-        entrypoint: bash -c "if [ ! -d vendor ]; then composer install --no-interaction --prefer-dist; fi && php-fpm"
+        entrypoint: bash -c "\
+            chown -R www-data:www-data storage bootstrap/cache && \
+            chmod -R 775 storage bootstrap/cache && \
+            composer install --no-interaction --prefer-dist && \
+            php artisan key:generate || true && \
+            php artisan migrate --seed || true && \
+            php-fpm"
         networks:
             - laravel
 
