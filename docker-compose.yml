@@ -6,6 +6,7 @@ services:
         container_name: laravel-php
         volumes:
             - .:/var/www
+        entrypoint: bash -c "if [ ! -d vendor ]; then composer install --no-interaction --prefer-dist; fi && php-fpm"
         networks:
             - laravel
 
