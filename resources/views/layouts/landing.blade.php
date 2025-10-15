@@ -3,7 +3,7 @@
 
     <head>
 
-        <title>@yield('title') - Aplikasi PPDB SMK</title>
+        <title>@yield('title') - Aplikasi BK SMK</title>
         <!-- [Meta] -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -61,7 +61,7 @@
         <nav class="navbar navbar-expand-md navbar-dark top-nav-collapse default py-0">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img width="70" src="{{ asset('assets/images/my/logo-black-tp.png') }}" alt="logo">
+                    <img width="70" src="{{ asset('assets/images/my/images.png') }}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
@@ -102,7 +102,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="{{ asset('assets/images/my/logo-black-tp.png') }}"
+                            <img src="{{ asset('assets/images/my/images.png') }}"
                                 alt="Logo Sekolah Harapan Bangsa" class="img-fluid mb-3" style="max-width: 200px;">
                             <p class="opacity-75">Sekolah Harapan Bangsa berkomitmen untuk mencetak generasi penerus
                                 yang cerdas, kreatif, dan berakhlak mulia melalui pendidikan berkualitas.</p>

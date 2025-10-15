@@ -3,6 +3,44 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\LogPelanggaranController;
+use App\Http\Controllers\JadwalKonselingController;
+use App\Http\Controllers\CatatanKonselingController;
+use App\Http\Controllers\CatatanPerkembanganController;
+use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\IdentitasSekolahController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\SuratPanggilanController;
+use App\Http\Controllers\ArsipDokumenController;
+use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
+
+Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
+Route::resource('kelas', KelasController::class);
+Route::resource('jurusan', JurusanController::class);
+Route::resource('siswa', SiswaController::class);
+Route::resource('pelanggaran', PelanggaranController::class);
+Route::resource('log_pelanggaran', LogPelanggaranController::class);
+Route::resource('jadwal_konseling', JadwalKonselingController::class);
+Route::resource('catatan_konseling', CatatanKonselingController::class);
+Route::resource('catatan_perkembangan', CatatanPerkembanganController::class);
+Route::resource('prestasi', PrestasiController::class);
+Route::resource('identitas_sekolah', IdentitasSekolahController::class);
+Route::resource('agenda', AgendaController::class);
+Route::resource('pengaduan', PengaduanController::class);
+Route::resource('surat_panggilan', SuratPanggilanController::class);
+Route::resource('arsip_dokumen', ArsipDokumenController::class);
+Route::resource('notifikasi', NotifikasiController::class);
+Route::resource('laporan', LaporanController::class);
 
 Route::get('/', function () {
     return view('welcome');
