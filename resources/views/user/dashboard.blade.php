@@ -29,10 +29,7 @@
                     </div>
                 @endif
                 <p class="lead mb-4">
-                    Ini adalah <span class="fw-bold text-success">Dashboard</span> kamu untuk memantau progress dan
-                    status terkait <span class="text-info">PPDB</span>.
-                    Silakan gunakan menu di samping untuk mengakses fitur-fitur seperti pendaftaran, pengumuman, dan
-                    lainnya.
+                    Ini adalah <span class="fw-bold text-success">Dashboard</span> <span class="text-info"></span>.
                 </p>
 
                 <div class="row mt-4">
@@ -40,8 +37,8 @@
                         <div class="card border-info h-100">
                             <div class="card-body">
                                 <i class="bi bi-person-lines-fill fs-2 text-info"></i>
-                                <h5 class="card-title mt-2">Pendaftaran</h5>
-                                <p class="card-text">Cek dan lengkapi data pendaftaran kamu di sini.</p>
+                                <h5 class="card-title mt-2"></h5>
+                                <p class="card-text">Cek dan lengkapi data kamu di sini.</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +47,7 @@
                             <div class="card-body">
                                 <i class="bi bi-bar-chart-line-fill fs-2 text-success"></i>
                                 <h5 class="card-title mt-2">Progress</h5>
-                                <p class="card-text">Pantau status dan tahapan seleksi PPDB.</p>
+                                <p class="card-text">Pantau status dan tahapan.</p>
                             </div>
                         </div>
                     </div>
@@ -59,7 +56,7 @@
                             <div class="card-body">
                                 <i class="bi bi-megaphone-fill fs-2 text-warning"></i>
                                 <h5 class="card-title mt-2">Pengumuman</h5>
-                                <p class="card-text">Lihat pengumuman terbaru terkait PPDB.</p>
+                                <p class="card-text">Lihat pengumuman terbaru terkait BK</p>
                             </div>
                         </div>
                     </div>
