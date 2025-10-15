@@ -6,7 +6,7 @@
 @section('content')
     <!-- [ Header ] start -->
     <header id="home" class="d-flex align-items-center"
-        style="position: relative; min-height: 100dvh; background: url('{{ asset('assets/images/my/hero-section.png') }}') no-repeat center center; background-size: cover;">
+        style="position: relative; min-height: 100dvh; background: url('{{ asset('assets/images/my/antartika.png') }}') no-repeat center center; background-size: cover;">
         <!-- Overlay -->
         <div
             style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));">
@@ -133,7 +133,7 @@
 
     <!-- [ CTA ] start -->
     <section class="cta-block"
-        style="position: relative; padding: 120px 0; background: url('{{ asset('assets/images/my/join-us.png') }}') no-repeat center center; background-size: cover; background-attachment: fixed;">
+        style="position: relative; padding: 120px 0; background: url('{{ asset('assets/images/my/antartika.png') }}') no-repeat center center; background-size: cover; background-attachment: fixed;">
         <!-- Overlay -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6);">
         </div>
